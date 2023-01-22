@@ -1,9 +1,9 @@
 # onthespot-docker </br>
 
 [![Repo](https://img.shields.io/badge/Docker-Repo-007EC6?labelColor-555555&color-007EC6&logo=docker&logoColor=fff&style=flat-square)](https://hub.docker.com/r/passivelemon/onthespot-docker)
-[![Version](https://img.shields.io/docker/v/passivelemon/tmodloader1.4-docker/latest?labelColor-555555&color-007EC6&style=flat-square)](https://hub.docker.com/r/passivelemon/onthespot-docker)
-[![Size](https://img.shields.io/docker/image-size/passivelemon/tmodloader1.4-docker/latest?sort=semver&labelColor-555555&color-007EC6&style=flat-square)](https://hub.docker.com/r/passivelemon/onthespot-docker)
-[![Pulls](https://img.shields.io/docker/pulls/passivelemon/tmodloader1.4-docker?labelColor-555555&color-007EC6&style=flat-square)](https://hub.docker.com/r/passivelemon/onthespot-docker)
+[![Version](https://img.shields.io/docker/v/passivelemon/onthespot-docker/latest?labelColor-555555&color-007EC6&style=flat-square)](https://hub.docker.com/r/passivelemon/onthespot-docker)
+[![Size](https://img.shields.io/docker/image-size/passivelemon/onthespot-docker/latest?sort=semver&labelColor-555555&color-007EC6&style=flat-square)](https://hub.docker.com/r/passivelemon/onthespot-docker)
+[![Pulls](https://img.shields.io/docker/pulls/passivelemon/onthespot-docker?labelColor-555555&color-007EC6&style=flat-square)](https://hub.docker.com/r/passivelemon/onthespot-docker)
 
 Docker container for [OnTheSpot](https://github.com/casualsnek/onthespot). </br>
 Arch VNC container provided by [DCsunset](https://github.com/DCsunset/docker-i3-arch-vnc). </br>
