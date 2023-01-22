@@ -8,8 +8,6 @@
 Docker container for [OnTheSpot](https://github.com/casualsnek/onthespot). </br>
 Arch VNC container provided by [DCsunset](https://github.com/DCsunset/docker-i3-arch-vnc). </br>
 
-#### STILL A WIP </br>
-
 If your distribution does not easily support building with python (ex: NixOS), or you just want a portable but separate OTS, this is the Docker container for you. </br>
 
 ## Docker Container </br>
