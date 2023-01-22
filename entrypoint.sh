@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# Most of this was taken from https://github.com/DCsunset/docker-i3-arch-vnc/tree/master/scripts. It is modified to fit this need.
+
 set -e
 
 # Install apps
@@ -27,10 +29,12 @@ fi
 
 cd /root
 
-git clone https://github.com/casualsnek/onthespot
-cd onthespot
-bash ./build_linux.sh
-chmod +x /root/onthespot/dist/onthespot_linux
+if [ ! -d "/root/onthespot/" ]; then
+	git clone https://github.com/casualsnek/onthespot
+	cd onthespot
+	bash ./build_linux.sh
+	chmod +x /root/onthespot/dist/onthespot_linux
+fi
 
 [[ -f /scripts/init.sh ]] && /scripts/init.sh && rm /scripts/init.sh
 
@@ -70,7 +74,6 @@ vncsession $CUSER :0
 # Start noVNC
 if [ "$DISABLE_NOVNC" != "true" ]; then
 	/noVNC/utils/launch.sh
-	exec /root/onthespot/dist/onthespot_linux
 else
 	# prevent process from exiting
 	tail -f /dev/null

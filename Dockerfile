@@ -7,11 +7,13 @@ RUN pacman-key --init &&\
 
 COPY entrypoint.sh /
 COPY config.json /root/.config/casualOnTheSpot/
+COPY config /root/.config/i3/
+COPY starter.sh /
 
 RUN chmod +x /entrypoint.sh
 RUN chmod 777 /root/otsdownloads
 
-# Todo: Incorporate password settings + any other necessary commands
+# Todo: Incorporate config settings through ENV variables.
 
 EXPOSE 5900
 

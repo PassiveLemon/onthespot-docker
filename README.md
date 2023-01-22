@@ -1,5 +1,6 @@
 # onthespot-docker </br>
-Docker container for OnTheSpot by casualsnek </br>
+Docker container for [OnTheSpot](https://github.com/casualsnek/onthespot). </br>
+Arch VNC container provided by [DCsunset](https://github.com/DCsunset/docker-i3-arch-vnc). </br>
 
 #### STILL A WIP </br>
 
@@ -8,7 +9,7 @@ Docker container for OnTheSpot by casualsnek </br>
 2. Build the docker image. I will upload it to Docker eventually. </br>
 3. Run it: </br>
 `docker run -d --name <name> -p 5900:5900 -p 6080:6080 -v <host download dir>:/root/otsdownloads/ -e VNC_PASSWD=<password> <image name>` </br>
-  - Example: `docker run -d --name OnTheSpotDocker -p 5900:5900 -p 6080:6080 -v /home/lemon/Downloads/OnTheSpotDocker/:/root/otsdownloads/ -e VNC_PASSWD=123 otsdockerimage`
+   - Example: `docker run -d --name OnTheSpotDocker -p 5900:5900 -p 6080:6080 -v /home/lemon/Downloads/OnTheSpotDocker/:/root/otsdownloads/ -e VNC_PASSWD=123 otsdockerimage`
 
 ### Container Options </br>
 Set `<name>` to whatever you want. </br>
@@ -17,14 +18,14 @@ Set `<password>` to the password you want to use. This MUST be set or it will no
 Set `<image name>` to the name of the image that you built. </br>
 
 # Usage </br>
-Once it is run, it will download i3 for the desktop and build OTS. </br>
-1. Head to http://localhost:6080/ to access the VNC. Enter the password you set earlier to enter.
-2. You will see a prompt for settings. Enable default config, and I recommend using alt for the mod key if you already use win for your host. </br>
-3. Press `mod + enter` to open the terminal. </br>
-4. Enter `exec /root/onthespot/dist/onthespot_linux` to start OTS. </br>
-5. You will need to go to the config tab and enter your Spotify account details. Once you do that, close OTS with `mod + shift + q`. </br>
-6. Open OTS back up using the same command from before. </br>
-7. Use OTS! The download directory is set by default. Assuming you mounted a host directory correctly, it will just download to there. </br>
+Once it is run, it will download i3 for the desktop and build OTS. This may take a few minutes. </br>
+1. Head to http://localhost:6080/ to access the VNC. If the container hasn't finished setting up, nothing will show.
+2. Enter the password you set earlier to enter. </br>
+3. OTS should be started automatically. You will need to go to the config tab and enter your Spotify account details.
+   - If the window size is too weird, you can change it by right clicking and dragging the space between the terminal and OTS.
+4. Once you do that, close OTS with `alt+shift+q`. </br>
+5. Open OTS back up using `alt+shift+p`. </br>
+6. Use OTS! The download directory is set by default. Assuming you mounted a host directory correctly, it will just download to there. </br>
 
 # Other </br>
 
@@ -38,6 +39,7 @@ If OTS ever does get scripting support, I will determine if it is necessary to f
 </br>
 
 ## Development
-- Get OTS to appear upon startup. </br>
 - Allow customization of config upon startup with environment variables. </br>
+
+- Final step: Upload to Docker hub. </br>
 
