@@ -12,10 +12,15 @@ Arch VNC container provided by [DCsunset](https://github.com/DCsunset/docker-i3-
 
 If your distribution does not easily support building with python (ex: NixOS), or you just want a portable but separate OTS, this is the Docker container for you. </br>
 
-# Setting up </br>
-1. Run it: </br>
-`docker run -d --name <name> -p 5900:5900 -p 6080:6080 -v <host download dir>:/root/otsdownloads/ -e VNC_PASSWD=<password> passivelemon/onthespot-docker:latest` </br>
-   - Example: `docker run -d --name OnTheSpotDocker -p 5900:5900 -p 6080:6080 -v /home/lemon/Downloads/OnTheSpotDocker/:/root/otsdownloads/ -e VNC_PASSWD=123 passivelemon/onthespot-docker:latest`
+## Docker Container </br>
+Run it: </br>
+```
+docker run -d --name <name> -p 5900:5900 -p 6080:6080 -v <host download dir>:/root/otsdownloads/ -e VNC_PASSWD=<password> passivelemon/onthespot-docker:latest
+```
+#### Example: </br>
+```
+docker run -d --name OnTheSpotDocker -p 5900:5900 -p 6080:6080 -v /home/lemon/Downloads/OnTheSpotDocker/:/root/otsdownloads/ -e VNC_PASSWD=123 passivelemon/onthespot-docker:latest
+```
 
 ### Container Options </br>
 Set `<name>` to whatever you want. </br>
