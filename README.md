@@ -29,15 +29,15 @@ Set `<password>` to the password you want to use. This MUST be set or it will no
 You can even mount `/root/.config/casualOnTheSpot/` to a host directory to maintain the config file between rebuilds. </br>
 
 # Usage </br>
-Once it is run, build OTS and setup the VNC. This may take a few minutes. </br>
+Once it is run, it will build OTS and setup the VNC. This may take a few minutes. </br>
 1. Head to http://localhost:6080/ to access the VNC. If the container hasn't finished setting up, nothing will show. </br>
 2. Enter the password you set earlier to enter. </br>
-3. OTS should be started automatically. You will need to go to the config tab and enter your Spotify account details. </br>
+3. You will need to go to the config tab and enter your Spotify account details. OTS should be started automatically. If it isn't, open OTS using `alt+shift+p` </br>
    - If the window size is too weird, you can modify it by right clicking and dragging the space between the terminal and OTS. </br>
 4. Once you enter your account details, close OTS with `alt+shift+q`. This is required. </br>
 5. Open OTS back up using `alt+shift+p`. </br>
 6. Use OTS! </br>
-   - The download directory is set by default. Assuming you mounted a host directory correctly, it will just download to there. </br>
+   - The download directory is set by default. Assuming you mounted a host directory correctly, it will download to there. </br>
 
 # Other </br>
 Go to [OnTheSpot](https://github.com/casualsnek/onthespot) for extra details on usage. </br>
