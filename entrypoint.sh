@@ -4,11 +4,6 @@
 
 set -e
 
-# Install apps
-pacman -Syu --noconfirm xorg-server \
-	wget tigervnc alacritty which \
-	i3-wm python-setuptools ttf-dejavu
-
 # Install noVNC
 if [ "$DISABLE_NOVNC" != "true" ]; then
 	export noVNC_version=1.2.0
@@ -32,6 +27,7 @@ cd /root
 if [ ! -d "/root/onthespot/" ]; then
 	git clone https://github.com/casualsnek/onthespot
 	cd onthespot
+	chmod 777 ./build_linux.sh
 	bash ./build_linux.sh
 	chmod +x /root/onthespot/dist/onthespot_linux
 fi
