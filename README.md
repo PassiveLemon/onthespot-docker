@@ -4,8 +4,9 @@ Docker container for OnTheSpot by casualsnek </br>
 #### STILL A WIP </br>
 
 # Setting up </br>
-1. Build the docker image. I will upload it to Docker eventually. </br>
-2. Run it: </br>
+1. Clone the repository and cd into it. </br>
+2. Build the docker image. I will upload it to Docker eventually. </br>
+3. Run it: </br>
 `docker run -d --name <name> -p 5900:5900 -p 6080:6080 -v <host download dir>:/root/otsdownloads/ -e VNC_PASSWD=<password> <image name>` </br>
   - Example: `docker run -d --name OnTheSpotDocker -p 5900:5900 -p 6080:6080 -v /home/lemon/Downloads/OnTheSpotDocker/:/root/otsdownloads/ -e VNC_PASSWD=123 otsdockerimage`
 
