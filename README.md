@@ -18,6 +18,7 @@ Set `<name>` to whatever you want. </br>
 Set `<host download dir>` to the location that you want OTS to download songs to. </br>
 Set `<password>` to the password you want to use. This MUST be set or it will not work. </br>
 Set `<image name>` to the name of the image that you built. </br>
+You can even mount `/root/.config/casualOnTheSpot/` to a host directory to maintain the config file between rebuilds. </br>
 
 # Usage </br>
 Once it is run, it will download i3 for the desktop and build OTS. This may take a few minutes. </br>
@@ -34,10 +35,8 @@ Once it is run, it will download i3 for the desktop and build OTS. This may take
 Go to [OnTheSpot](https://github.com/casualsnek/onthespot) for extra details on usage. </br>
 
 If OTS ever gets scripting support, I will determine if it is necessary to futher develop this. </br>
-</br>
 
 ## Development
 - Allow customization of config upon startup with environment variables. </br>
 
 - Final step: Upload to Docker hub. </br>
-
