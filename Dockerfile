@@ -1,8 +1,12 @@
-FROM ubuntu:22.04
+#FROM archlinux:latest
+FROM dcsunset/i3-arch-vnc
 
-RUN apt update &&\
-    apt upgrade &&\
-    DEBIAN_FRONTEND=noninteractive apt install -y xvfb x11vnc curl git p7zip-full python-is-python3 python3-pip python3.10-venv
+#RUN pacman -Syu --noconfirm &&\
+#    pacman -S --noconfirm bash xorg-server tigervnc curl git p7zip python python-pip python-virtualenv
+
+RUN pacman -Sy --noconfirm archlinux-keyring && pacman -Syu --noconfirm
+
+RUN pacman -S --noconfirm bash curl git p7zip python python-pip python-virtualenv
 
 COPY entrypoint.sh /
 
