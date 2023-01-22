@@ -11,6 +11,12 @@ If OTS ever does get scripting support, I will determine if it is necessary to f
 </br>
 
 ## Development
-- Issues getting OTS to display. Seems to have to do with the Ubuntu image.
+- <strike> Issues getting OTS to display. Seems to have to do with the Ubuntu image. </strike></br>
+  - Fixed. Used an Arch image. </br>
+ 
+- Get OTS to appear upon startup.
+
+- Add default config.
+
 - Idealy, building from source would be best for the most frequent updates but, because of building issues (likely having to do with the Ubuntu image again), it is just set to download the prebuild binary and run that. </br>
 
