@@ -7,7 +7,7 @@ RUN pacman-key --init &&\
     mkdir -p /root/otsdownloads
 
 COPY entrypoint.sh /
-COPY config.json /root/.config/casualOnTheSpot/
+COPY config.json /
 COPY config /root/.config/i3/
 
 RUN chmod +x /entrypoint.sh

@@ -32,6 +32,8 @@ if [ ! -d "/root/onthespot/" ]; then
 	chmod +x /root/onthespot/dist/onthespot_linux
 fi
 
+cp /config.json /root/.config/casualOnTheSpot/config.json
+
 [[ -f /scripts/init.sh ]] && /scripts/init.sh && rm /scripts/init.sh
 
 # current user
