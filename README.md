@@ -13,21 +13,21 @@ If your distribution does not easily support building with python (ex: NixOS), o
 ## Docker Container </br>
 Run it: </br>
 ```
-docker run -d --name (container name) -p 5900:5900 -p 6080:6080 -v (host download dir):/root/otsdownloads/ -e VNC_PASSWD=(password) passivelemon/onthespot-docker:latest
+docker run -d --name (container name) -p 5900:5900 -p 6080:6080 -v (host download dir):/onthespot/downloads/ -e VNC_PASSWD=(password) passivelemon/onthespot-docker:latest
 ```
 | Operator | Need | Details |
 |:-|:-|:-|
 | `-d` | No | Will run the container in the background. I recommend having it for simplicity. |
 | `--name (container name)` | No | Sets the name of the container to the following word. You can change this to whatever you want. |
 | `-p 5900:5900` `-p 6080:6080` | Yes | 5900 is for a VNC client and 6080 is for the web browser VNC. At least one of them is needed but not both. |
-| `(host download dir):/root/otsdownloads/` | Yes | Sets the host location that you want OTS to download songs to. |
+| `(host download dir):/onthespot/downloads/` | Yes | Sets the host location that you want OTS to download songs to. |
 | `(host config dir):/root/.config/casualOnTheSpot/` | No | Mount the config file directory to stay between rebuilds. |
 | `VNC_PASSWD=(password)` | Yes | Sets the password you want to use. This MUST be set or it will not work. |
 | `passivelemon/onthespot-docker:latest` | Yes | The repository on Docker hub. By default, it is the latest version that I have published. |
 
 #### Example: </br>
 ```
-docker run -d --name OnTheSpotDocker -p 5900:5900 -p 6080:6080 -v /home/lemon/Downloads/OnTheSpotDocker/:/root/otsdownloads/ -e VNC_PASSWD=123 passivelemon/onthespot-docker:latest
+docker run -d --name OnTheSpotDocker -p 5900:5900 -p 6080:6080 -v /home/lemon/Downloads/OnTheSpotDocker/:/onthespot/downloads/ -e VNC_PASSWD=123 passivelemon/onthespot-docker:latest
 ```
 
 # Usage </br>
