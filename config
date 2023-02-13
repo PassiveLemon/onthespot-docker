@@ -11,6 +11,10 @@
 
 set $mod Mod1
 
+# CUSTOM OTS COMMAND
+exec alacritty -e "/onthespot/onthespot/dist/onthespot_linux"
+bindsym $mod+Shift+p exec "alacritty -e /onthespot/onthespot/dist/onthespot_linux"
+
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 font pango:monospace 8
@@ -188,7 +192,3 @@ bindsym $mod+r mode "resize"
 bar {
         status_command i3status
 }
-
-# CUSTOM OTS COMMAND
-exec alacritty -e "/root/onthespot/dist/onthespot_linux"
-bindsym $mod+Shift+p exec "alacritty -e /root/onthespot/dist/onthespot_linux"

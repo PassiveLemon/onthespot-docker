@@ -4,17 +4,17 @@ RUN pacman-key --init &&\
     pacman -Sy --noconfirm archlinux-keyring && pacman -Syu --noconfirm &&\
     pacman -S --noconfirm xorg-server wget tigervnc alacritty which i3-wm python-setuptools ttf-dejavu &&\
     pacman -S --noconfirm bash git python python-pip python-virtualenv gcc binutils alsa-lib ffmpeg &&\
-    mkdir -p /root/otsdownloads
+    mkdir -p /onthespot/downloads/
 
-COPY entrypoint.sh /
-COPY config.json /
+COPY entrypoint.sh /onthespot/
+COPY config.json /onthespot/
 COPY config /root/.config/i3/
 
-RUN chmod +x /entrypoint.sh
-RUN chmod 777 /root/otsdownloads
+RUN chmod +x /onthespot/entrypoint.sh
+RUN chmod -R 777 /onthespot/downloads/
 
 # Todo: Incorporate config settings through ENV variables.
 
 EXPOSE 5900 6080
 
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["/onthespot/entrypoint.sh"]

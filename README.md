@@ -45,4 +45,6 @@ Once it is run, it will build OTS and setup the VNC. This may take a few minutes
 # Other </br>
 Go to [OnTheSpot](https://github.com/casualsnek/onthespot) for extra details on usage. </br>
 
+You can also use a VNC like TigerVNC to get in as well. The web interface is the most accessible so that's what will be supported. </br>
+
 If OTS ever gets scripting support, I will determine if it is necessary to futher develop this. </br>

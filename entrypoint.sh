@@ -22,17 +22,20 @@ if [ "$DISABLE_NOVNC" != "true" ]; then
 		&& rm /noVNC.tar.gz
 fi
 
-cd /root
-
-if [ ! -d "/root/onthespot/" ]; then
+if [ ! -d "/onthespot/onthespot/" ]; then
+	pushd /onthespot/
 	git clone https://github.com/casualsnek/onthespot
-	cd onthespot
-	chmod 777 ./build_linux.sh
-	bash ./build_linux.sh
-	chmod +x /root/onthespot/dist/onthespot_linux
+	pushd /onthespot/onthespot/
+	chmod 777 /onthespot/onthespot/build_linux.sh
+	bash /onthespot/onthespot/build_linux.sh
+	chmod +x /onthespot/onthespot/dist/onthespot_linux
+	popd
+	popd
 fi
 
-cp /config.json /root/.config/casualOnTheSpot/config.json
+if [ ! -e "/root/.config/casualOnTheSpot/config.json" ]; then
+	cp /onthespot/config.json /root/.config/casualOnTheSpot/config.json
+fi
 
 [[ -f /scripts/init.sh ]] && /scripts/init.sh && rm /scripts/init.sh
 
