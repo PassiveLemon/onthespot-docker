@@ -42,6 +42,7 @@ Once it is run, it will build OTS and setup the VNC. This may take a few minutes
    - The download directory is set by default. Assuming you mounted a host directory correctly, it will download to there. </br>
 - Note that you cannot copy and paste when using the web browser VNC.
 
+
 # Other </br>
 Go to [OnTheSpot](https://github.com/casualsnek/onthespot) for extra details on usage. </br>
 

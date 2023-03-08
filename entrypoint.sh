@@ -23,21 +23,17 @@ if [ "$DISABLE_NOVNC" != "true" ]; then
 fi
 
 if [ ! -d "/onthespot/onthespot/" ]; then
-	pushd /onthespot/
+	cd /onthespot/
 	git clone https://github.com/casualsnek/onthespot
-	pushd /onthespot/onthespot/
+	cd /onthespot/onthespot/
 	chmod 777 /onthespot/onthespot/build_linux.sh
 	bash /onthespot/onthespot/build_linux.sh
 	chmod +x /onthespot/onthespot/dist/onthespot_linux
-	popd
-	popd
 fi
 
 if [ ! -e "/root/.config/casualOnTheSpot/config.json" ]; then
 	cp /onthespot/config.json /root/.config/casualOnTheSpot/config.json
 fi
-
-[[ -f /scripts/init.sh ]] && /scripts/init.sh && rm /scripts/init.sh
 
 # current user
 CUSER=${USERNAME:-root}

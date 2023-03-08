@@ -1,7 +1,6 @@
-FROM dcsunset/i3-arch-vnc
+FROM archlinux:latest
 
-RUN pacman-key --init &&\
-    pacman -Sy --noconfirm archlinux-keyring && pacman -Syu --noconfirm &&\
+RUN pacman -Syuu --noconfirm &&\
     pacman -S --noconfirm xorg-server wget tigervnc alacritty which i3-wm python-setuptools ttf-dejavu &&\
     pacman -S --noconfirm bash git python python-pip python-virtualenv gcc binutils alsa-lib ffmpeg &&\
     mkdir -p /onthespot/downloads/
