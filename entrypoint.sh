@@ -24,7 +24,7 @@ fi
 
 if [ ! -d "/onthespot/onthespot/" ]; then
 	cd /onthespot/
-	git clone https://github.com/casualsnek/onthespot
+	git clone --branch ${BRANCH} https://github.com/casualsnek/onthespot
 	cd /onthespot/onthespot/
 	chmod 777 /onthespot/onthespot/build_linux.sh
 	bash /onthespot/onthespot/build_linux.sh

@@ -13,6 +13,7 @@ RUN chmod +x /onthespot/entrypoint.sh
 RUN chmod -R 777 /onthespot/downloads/
 
 # Todo: Incorporate config settings through ENV variables.
+ENV BRANCH=main
 
 EXPOSE 5900 6080
 
