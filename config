@@ -9,6 +9,8 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
+wayvnc 0.0.0.0
+
 set $mod Mod1
 
 # CUSTOM OTS COMMAND
