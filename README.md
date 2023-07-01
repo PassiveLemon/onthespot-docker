@@ -1,4 +1,4 @@
-# onthespot-docker </br>
+# [onthespot-docker](https://github.com/PassiveLemon/onthespot-docker) </br>
 
 [![Repo](https://img.shields.io/badge/Docker-Repo-007EC6?labelColor-555555&color-007EC6&logo=docker&logoColor=fff&style=flat-square)](https://hub.docker.com/r/passivelemon/onthespot-docker)
 [![Version](https://img.shields.io/docker/v/passivelemon/onthespot-docker/latest?labelColor-555555&color-007EC6&style=flat-square)](https://hub.docker.com/r/passivelemon/onthespot-docker)
@@ -10,7 +10,7 @@ Arch VNC container provided by [DCsunset](https://github.com/DCsunset/docker-i3-
 
 If your distribution does not easily support building with python (ex: NixOS), or you just want a portable but separate OTS, this is the Docker container for you. </br>
 
-## Docker Container </br>
+# Docker Container </br>
 Run it: </br>
 ```
 docker run -d --name (container name) -p 5900:5900 -p 6080:6080 -v (host download dir):/onthespot/downloads/ -e VNC_PASSWD=(password) passivelemon/onthespot-docker:latest
