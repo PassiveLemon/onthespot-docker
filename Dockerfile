@@ -1,20 +1,32 @@
-FROM archlinux:latest
+ARG BASE_TAG="develop"
+ARG BASE_IMAGE="core-ubuntu-jammy"
+FROM kasmweb/$BASE_IMAGE:$BASE_TAG
 
-RUN pacman -Syuu --noconfirm &&\
-    pacman -S --noconfirm xorg-server wget tigervnc alacritty which i3-wm python-setuptools ttf-dejavu &&\
-    pacman -S --noconfirm bash git python python-pip python-virtualenv gcc binutils alsa-lib ffmpeg &&\
-    mkdir -p /onthespot/downloads/
+USER root
 
-COPY entrypoint.sh /onthespot/
-COPY config.json /onthespot/
-COPY config /root/.config/i3/
+ENV HOME /home/kasm-default-profile
+ENV STARTUPDIR /dockerstartup
+ENV INST_SCRIPTS $STARTUPDIR/install
+WORKDIR $HOME
 
-RUN chmod +x /onthespot/entrypoint.sh
-RUN chmod -R 777 /onthespot/downloads/
+######### Customize Container Here ###########
 
-# Todo: Incorporate config settings through ENV variables.
-ENV BRANCH=main
+# Install OnTheSpot
+COPY ./onthespot $INST_SCRIPTS/onthespot/
+RUN bash $INST_SCRIPTS/onthespot/install_onthespot.sh && rm -rf $INST_SCRIPTS/onthespot/
+COPY ./onthespot/config.json /home/kasm-user/.config/casualOnTheSpot/config.json
 
-EXPOSE 5900 6080
+COPY ./onthespot/custom_startup.sh $STARTUPDIR/custom_startup.sh
+RUN chmod +x $STARTUPDIR/custom_startup.sh
+RUN chmod 755 $STARTUPDIR/custom_startup.sh
 
-ENTRYPOINT ["/onthespot/entrypoint.sh"]
+######### End Customizations ###########
+
+RUN chown 1000:0 $HOME
+RUN $STARTUPDIR/set_user_permission.sh $HOME
+
+ENV HOME /home/kasm-user
+WORKDIR $HOME
+RUN mkdir -p $HOME && chown -R 1000:0 $HOME
+
+USER 1000

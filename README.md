@@ -2,43 +2,71 @@
 
 [![Repo](https://img.shields.io/badge/Docker-Repo-007EC6?labelColor-555555&color-007EC6&logo=docker&logoColor=fff&style=flat-square)](https://hub.docker.com/r/passivelemon/onthespot-docker)
 [![Version](https://img.shields.io/docker/v/passivelemon/onthespot-docker/latest?labelColor-555555&color-007EC6&style=flat-square)](https://hub.docker.com/r/passivelemon/onthespot-docker)
-[![Size](https://img.shields.io/docker/image-size/passivelemon/onthespot-docker/latest?sort=semver&labelColor-555555&color-007EC6&style=flat-square)](https://hub.docker.com/r/passivelemon/onthespot-docker)
+[![Size](https://img.shields.io/docker/image-size/passivelemon/onthespot-docker/latest?labelColor-555555&color-007EC6&style=flat-square)](https://hub.docker.com/r/passivelemon/onthespot-docker)
 [![Pulls](https://img.shields.io/docker/pulls/passivelemon/onthespot-docker?labelColor-555555&color-007EC6&style=flat-square)](https://hub.docker.com/r/passivelemon/onthespot-docker)
 
 Docker container for [OnTheSpot](https://github.com/casualsnek/onthespot). </br>
-Arch VNC container provided by [DCsunset](https://github.com/DCsunset/docker-i3-arch-vnc). </br>
 
 # Current
 OTS should have CLI support in upcoming updates. While I do not know when this will happen, this container will not be updated until then, after which it will be completely redone. </br>
 
-# Docker Container </br>
-Run it: </br>
+### Docker run </br>
 ```
-docker run -d --name (container name) -p 5900:5900 -p 6080:6080 -v (host download dir):/onthespot/downloads/ -e VNC_PASSWD=(password) passivelemon/onthespot-docker:latest
+docker run -d --name (container name) -p 6901:6901 -v (host download dir):/home/kasm-user/Downloads/OnTheSpot/ -v (host config file):/home/kasm-user/.config/casualOnTheSpot/config.json` -e VNC_PW:(password) passivelemon/onthespot-docker:latest
 ```
+
+### Docker Compose </br>
+```yml
+version: '3.3'
+services:
+   onthespot-docker:
+      image: passivelemon/onthespot-docker:latest
+      container_name: onthespot-docker
+      ports:
+         - 6901:6901/tcp
+      volumes:
+         - (host download dir):/home/kasm-user/Downloads/OnTheSpot/
+         - (host config file):/home/kasm-user/.config/casualOnTheSpot/config.json
+      environment:
+         VNC_PW: '(password)'
+```
+
 | Operator | Need | Details |
 |:-|:-|:-|
 | `-d` | No | Will run the container in the background. I recommend having it for simplicity. |
 | `--name (container name)` | No | Sets the name of the container to the following word. You can change this to whatever you want. |
-| `-p 5900:5900` `-p 6080:6080` | Yes | 5900 is for a VNC client and 6080 is for the web browser VNC. At least one of them is needed but not both. |
-| `(host download dir):/onthespot/downloads/` | Yes | Sets the host location that you want OTS to download songs to. |
-| `(host config dir):/root/.config/casualOnTheSpot/` | No | Mount the config file directory to stay between rebuilds. |
-| `VNC_PASSWD=(password)` | Yes | Sets the password you want to use. This MUST be set or it will not work. |
+| `-p 6901:6901` | Yes | Sets the port to access the Kasm VNC server. |
+| `-v (host download dir):/home/kasm-user/Downloads/OnTheSpot/` | Yes | Sets the host location that you want OTS to download songs to. |
+| `-v (host config file):/home/kasm-user/.config/casualOnTheSpot/config.json` | No | Mount the config.json file to stay between rebuilds. |
+| `-e VNC_PW:(password)` | Recommended | Sets the password for the VNC UI. By default, it is `password` |
 | `passivelemon/onthespot-docker:latest` | Yes | The repository on Docker hub. By default, it is the latest version that I have published. |
 
-#### Example: </br>
+## Example </br>
+### Docker run </br>
 ```
-docker run -d --name OnTheSpotDocker -p 5900:5900 -p 6080:6080 -v /home/lemon/Downloads/OnTheSpotDocker/:/onthespot/downloads/ -e VNC_PASSWD=123 passivelemon/onthespot-docker:latest
+docker run -d --name OnTheSpotDocker -v /home/lemon/Downloads/OnTheSpotDocker/:/home/kasm-user/Downloads/OnTheSpot/ -v /home/lemon/Downloads/OnTheSpotDocker/config.json:/home/kasm-user/.config/casualOnTheSpot/config.json -e VNC_PW:'password123' passivelemon/onthespot-docker:latest
+```
+
+### Docker Compose </br>
+```yml
+version: '3.3'
+services:
+   onthespot-docker:
+      image: passivelemon/onthespot-docker:latest
+      container_name: onthespot-docker
+      ports:
+         - 6901:6901/tcp
+      volumes:
+         - /home/lemon/Downloads/OnTheSpotDocker/:/home/kasm-user/Downloads/OnTheSpot/
+         - /home/lemon/Downloads/OnTheSpotDocker/config.json:/home/kasm-user/.config/casualOnTheSpot/config.json
+      environment:
+         VNC_PW: 'password123'
 ```
 
 # Usage </br>
-Once it is run, it will build OTS and setup the VNC. This may take a few minutes. </br>
-1. Head to http://localhost:6080/ to access the VNC. If the container hasn't finished setting up, nothing will show. </br>
-2. Enter the password you set earlier to enter. </br>
-3. You will need to go to the config tab and enter your Spotify account details. OTS should be started automatically. If it isn't, open OTS using `alt+shift+p` </br>
-   - If the window size is too weird, you can modify it by right clicking and dragging the space between the terminal and OTS. </br>
-4. Once you enter your account details, close OTS with `alt+shift+q`. This is required. </br>
-5. Open OTS back up using `alt+shift+p`. </br>
+1. Head to http://localhost:6901/ to access the VNC. </br>
+2. Enter the login details. </br>
+3. You will need to go to the config tab and enter your Spotify account details. OTS should be started automatically. If not, there is a desktop icon. </br>
 6. Use OTS! </br>
    - The download directory is set by default. Assuming you mounted a host directory correctly, it will download to there. </br>
 - Note that you cannot copy and paste directly when using the web browser VNC. You must use the clipboard passthrough. </br>
@@ -46,5 +74,3 @@ Once it is run, it will build OTS and setup the VNC. This may take a few minutes
 
 # Other </br>
 Go to [OnTheSpot](https://github.com/casualsnek/onthespot) for extra details on usage. </br>
-
-You can also use a VNC like TigerVNC to get in as well. The web interface is the most accessible so that's what will be supported. </br>
