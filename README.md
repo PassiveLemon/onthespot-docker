@@ -74,3 +74,4 @@ services:
 
 # Other </br>
 Go to [OnTheSpot](https://github.com/casualsnek/onthespot) for extra details on usage. </br>
+Because of it basically needing to run an entire Linux system just to use OTS, there are a lot of security issues that I can't effectively patch out by myself. For that, I recommend you use `-p 127.0.0.1:6901:6901` which will only allow your device to access it. Not even other devices on the same network can. I also recommend to stop the container when it's not being used and set `restart: 'no'` so it won't start itself.
