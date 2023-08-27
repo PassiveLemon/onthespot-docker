@@ -64,7 +64,7 @@ services:
 ```
 
 # Usage </br>
-1. Head to http://localhost:6901/ to access the VNC. </br>
+1. Head to https://127.0.0.1:6901/ to access the VNC. </br>
 2. Enter the login details. Default username is kasm_user. Password is `password` if you did not set it. </br>
 3. You will need to go to the config tab and enter your Spotify account details. OTS should be started automatically. If not, there is a desktop icon. </br>
 6. Use OTS! </br>
