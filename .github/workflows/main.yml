@@ -46,10 +46,10 @@ jobs:
           docker buildx create --name mainbuilder --driver docker-container --platform linux/amd64 --use
           
           docker buildx build --push \
-            --build-arg VERSION=${{ github.event.release.tag_name }} \
+            --build-arg VERSION=${{ steps.get_latest_release_tag.outputs.latest_tag }} \
             --provenance=false \
             --platform linux/amd64 \
-            --tag ${{ secrets.DOCKER_USERNAME }}/onthespot-docker:${{ github.event.release.tag_name }} \
+            --tag ${{ secrets.DOCKER_USERNAME }}/onthespot-docker:${{ steps.get_latest_release_tag.outputs.latest_tag }} \
             --tag ${{ secrets.DOCKER_USERNAME }}/onthespot-docker:latest \
             --tag ghcr.io/${{ secrets.GHCR_USERNAME }}/onthespot-docker:${{ steps.get_latest_release_tag.outputs.latest_tag }} \
             --tag ghcr.io/${{ secrets.GHCR_USERNAME }}/onthespot-docker:latest \
